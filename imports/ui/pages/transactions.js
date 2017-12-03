@@ -11,7 +11,7 @@ Template.listTransactions.onCreated(function () {
 Template.listTransactions.helpers({
   transactions() {
     return Transactions.find({}, {
-      sort: { createdAt: -1 },
+      sort: { createdAt: 1 },
       transform(transaction) {
         return {
           createdAt: transaction.createdAt.toLocaleString(),
@@ -44,8 +44,8 @@ Template.viewTransaction.events({
     });
     if (!ans) return;
     try {
-      const removed = await Meteor.callAsync('Transactions.remove', transaction._id);
-      console.log('Transaction Deleted', removed);
+      await Meteor.callAsync('Transactions.remove', transaction._id);
+      console.log('Transaction Deleted', transaction._id);
     } catch (error) {
       console.error(error);
     }
@@ -54,15 +54,14 @@ Template.viewTransaction.events({
 
 Template.insertTransaction.events({
   'submit .js-transaction-form': async (event) => {
-    console.log(event);
     event.preventDefault();
     const transaction = {
+      createdAt: new Date(),
       description: event.target.description.value,
       type: event.target.type.value,
       amount: Number(event.target.amount.value),
     };
     try {
-      console.log(transaction);
       const id = await Meteor.callAsync('Transactions.insert', transaction);
       console.log('Transaction Added', id);
       event.target.reset();
