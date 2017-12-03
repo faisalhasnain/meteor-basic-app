@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
+import { _ } from 'meteor/underscore';
 import { Transactions } from '/imports/api/transactions/collection';
 import { showConfirm } from '/imports/ui/components/confirm.js';
 import './transactions.html';
@@ -22,6 +23,15 @@ Template.listTransactions.helpers({
         };
       }
     });
+  },
+  balance() {
+    if (!Meteor.user()) return;
+    const credits = Transactions.find({ type: 'Credit' }, { fields: { amount: 1 } }).fetch().map(t => t.amount)
+      .reduce((total, val) => total + val, 0);
+    const debits = Transactions.find({ type: 'Debit' }, { fields: { amount: 1 } }).fetch().map(t => t.amount)
+      .reduce((total, val) => total + val, 0);
+    const balance = credits - debits;
+    return `${balance.toLocaleString()} ${Meteor.user().profile.currency}`;
   }
 });
 
