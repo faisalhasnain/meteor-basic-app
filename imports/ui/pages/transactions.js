@@ -1,6 +1,5 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
-import { _ } from 'meteor/underscore';
 import { Transactions } from '/imports/api/transactions/collection';
 import { showConfirm } from '/imports/ui/components/confirm.js';
 import './transactions.html';
@@ -47,6 +46,26 @@ Template.viewTransaction.events({
     try {
       const removed = await Meteor.callAsync('Transactions.remove', transaction._id);
       console.log('Transaction Deleted', removed);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+});
+
+Template.insertTransaction.events({
+  'submit .js-transaction-form': async (event) => {
+    console.log(event);
+    event.preventDefault();
+    const transaction = {
+      description: event.target.description.value,
+      type: event.target.type.value,
+      amount: Number(event.target.amount.value),
+    };
+    try {
+      console.log(transaction);
+      const id = await Meteor.callAsync('Transactions.insert', transaction);
+      console.log('Transaction Added', id);
+      event.target.reset();
     } catch (error) {
       console.error(error);
     }
