@@ -1,0 +1,48 @@
+<template name="userLayout">
+  <nav class="navbar is-light">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <!-- <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28"> -->
+        <h5 class="subtitle is-4">Accounts Manager</h5>
+      </a>
+      <div class="navbar-burger burger" data-target="navMenubd-example">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  
+    <div id="navMenubd-example" class="navbar-menu">
+      <div class="navbar-end">
+        <span class="navbar-item is-hidden-desktop-only" href="#">
+          <p class="control">
+            <span class="icon is-small">
+              <i class="fa fa-user"></i>
+            </span>
+            <span>
+              {{userFirstName}}
+            </span>
+          </p>
+        </span>
+        <div class="navbar-item">
+          <p class="control">
+            <button type="button" id="signout" class="button is-warning">
+              <span class="icon">
+                <i class="fa fa-sign-out"></i>
+              </span>
+              <span>
+                Sign Out
+              </span>
+            </button>
+          </p>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <hr class="is-marginless">
+  <section class="section is-small">
+    <div class="container-fluid">
+      {{> Template.dynamic template=page}}
+    </div>
+  </section>
+</template>
