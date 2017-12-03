@@ -8,6 +8,7 @@
   "dependencies": {
     "babel-runtime": "^6.26.0",
     "bcrypt": "^1.0.3",
+    "bulma": "^0.6.1",
     "meteor-node-stubs": "^0.3.2",
     "simpl-schema": "^1.2.0"
   },
