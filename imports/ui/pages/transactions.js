@@ -16,7 +16,8 @@ Template.listTransactions.helpers({
         return {
           createdAt: transaction.createdAt.toLocaleString(),
           description: transaction.description,
-          type: transaction.type,
+          debit: transaction.type === 'Debit',
+          credit: transaction.type === 'Credit',
           amount: transaction.amount.toLocaleString()
         };
       }

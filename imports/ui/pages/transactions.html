@@ -4,8 +4,8 @@
       <tr>
         <th>DateTime</th>
         <th>Description</th>
-        <th>Type</th>
-        <th>Amount</th>
+        <th>Debit</th>
+        <th>Credit</th>
         <th></th>
       </tr>
     </thead>
@@ -21,8 +21,8 @@
   <tr>
     <td>{{transaction.createdAt}}</td>
     <td>{{transaction.description}}</td>
-    <td>{{transaction.type}}</td>
-    <td>{{transaction.amount}}</td>
+    <td>{{#if transaction.debit}}{{transaction.amount}}{{/if}}</td>
+    <td>{{#if transaction.credit}}{{transaction.amount}}{{/if}}</td>
     <td>
       <button type="button" class="button is-small is-info js-edit">
         <span class="icon">
