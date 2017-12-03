@@ -2,7 +2,8 @@
   "name": "accounts-meteor",
   "private": true,
   "scripts": {
-    "start": "meteor run"
+    "start": "meteor run",
+    "lint": "eslint ."
   },
   "dependencies": {
     "babel-runtime": "^6.26.0",
