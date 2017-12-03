@@ -10,7 +10,17 @@ Template.listTransactions.onCreated(function () {
 
 Template.listTransactions.helpers({
   transactions() {
-    return Transactions.find({}, { sort: { createdAt: -1 } });
+    return Transactions.find({}, {
+      sort: { createdAt: -1 },
+      transform(transaction) {
+        return {
+          createdAt: transaction.createdAt.toLocaleString(),
+          description: transaction.description,
+          type: transaction.type,
+          amount: transaction.amount.toLocaleString()
+        };
+      }
+    });
   }
 });
 
