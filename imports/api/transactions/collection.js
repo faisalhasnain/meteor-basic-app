@@ -6,8 +6,7 @@ export const Transactions = new Mongo.Collection('transactions');
 
 Transactions.schema = new SimpleSchema({
   description: {
-    type: String,
-    unique: true
+    type: String
   },
   type: {
     type: String,
