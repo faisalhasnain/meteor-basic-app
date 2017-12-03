@@ -15,6 +15,32 @@
   </table>
   <span class="tag is-primary is-large has-text-centered">Balance: {{balance}}</span>
   <div class="space-block"></div>
+  {{> insertTransaction}}
+</template>
+
+<template name="viewTransaction">
+  <tr>
+    <td>{{transaction.createdAt}}</td>
+    <td>{{transaction.description}}</td>
+    <td>{{#if transaction.debit}}{{transaction.amount}}{{/if}}</td>
+    <td>{{#if transaction.credit}}{{transaction.amount}}{{/if}}</td>
+    <td>
+      <button type="button" class="button is-small is-info js-edit">
+        <span class="icon">
+          <i class="fa fa-edit"></i>
+        </span>
+      </button>
+      &nbsp;
+      <button type="button" class="button is-small is-danger js-delete">
+        <span class="icon">
+          <i class="fa fa-times"></i>
+        </span>
+      </button>
+    </td>
+  </tr>
+</template>
+
+<template name="insertTransaction">
   <form class="js-transaction-form">
     <div class="field is-horizontal">
       <div class="field-body">
@@ -58,26 +84,4 @@
       </div>
     </div>
   </form>
-</template>
-
-<template name="viewTransaction">
-  <tr>
-    <td>{{transaction.createdAt}}</td>
-    <td>{{transaction.description}}</td>
-    <td>{{#if transaction.debit}}{{transaction.amount}}{{/if}}</td>
-    <td>{{#if transaction.credit}}{{transaction.amount}}{{/if}}</td>
-    <td>
-      <button type="button" class="button is-small is-info js-edit">
-        <span class="icon">
-          <i class="fa fa-edit"></i>
-        </span>
-      </button>
-      &nbsp;
-      <button type="button" class="button is-small is-danger js-delete">
-        <span class="icon">
-          <i class="fa fa-times"></i>
-        </span>
-      </button>
-    </td>
-  </tr>
 </template>
