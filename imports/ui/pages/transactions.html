@@ -1,4 +1,4 @@
-<template name="transactions">
+<template name="listTransactions">
   <table class="table is-striped is-fullwidth">
     <thead>
       <tr>
@@ -11,26 +11,31 @@
     </thead>
     <tbody>
       {{#each transaction in transactions}}
-        <tr>
-          <td>{{transaction.createdAt}}</td>
-          <td>{{transaction.description}}</td>
-          <td>{{transaction.type}}</td>
-          <td>{{transaction.amount}}</td>
-          <td>
-            <button type="button" class="button is-small is-info js-edit">
-              <span class="icon">
-                <i class="fa fa-edit"></i>
-              </span>
-            </button>
-            &nbsp;
-            <button type="button" class="button is-small is-danger js-delete">
-              <span class="icon">
-                <i class="fa fa-times"></i>
-              </span>
-            </button>
-          </td>
-        </tr>
+        {{> viewTransaction transaction=transaction}}
       {{/each}}
     </tbody>
   </table>
 </template>
+
+<template name="viewTransaction">
+  <tr>
+    <td>{{transaction.createdAt}}</td>
+    <td>{{transaction.description}}</td>
+    <td>{{transaction.type}}</td>
+    <td>{{transaction.amount}}</td>
+    <td>
+      <button type="button" class="button is-small is-info js-edit">
+        <span class="icon">
+          <i class="fa fa-edit"></i>
+        </span>
+      </button>
+      &nbsp;
+      <button type="button" class="button is-small is-danger js-delete">
+        <span class="icon">
+          <i class="fa fa-times"></i>
+        </span>
+      </button>
+    </td>
+  </tr>
+</template>
+

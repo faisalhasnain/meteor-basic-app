@@ -10,6 +10,6 @@ import '../../ui/pages/transactions.js';
 FlowRouter.route('/', {
   name: 'transactions',
   action() {
-    BlazeLayout.render('userLayout', { page: 'transactions' });
+    BlazeLayout.render('userLayout', { page: 'listTransactions' });
   }
 });
