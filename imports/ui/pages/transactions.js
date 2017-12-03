@@ -10,12 +10,12 @@ Template.transactions.onCreated(function () {
 
 Template.transactions.helpers({
   transactions() {
-    return Transactions.find({}, { sort: { title: 1 } });
+    return Transactions.find({}, { sort: { createdAt: -1 } });
   }
 });
 
 Template.transactions.events({
-  'click #delete-platform': async (event, templateInstance) => {
+  'click .js-delete': async (event, templateInstance) => {
     event.preventDefault();
     const { transaction } = templateInstance.data;
     const ans = await showConfirm({
