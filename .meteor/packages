@@ -23,3 +23,7 @@ kadira:flow-router
 grove:call-async
 aldeed:schema-deny
 kadira:blaze-layout
+accounts-password
+useraccounts:flow-routing
+aldeed:collection2-core
+useraccounts:bulma
