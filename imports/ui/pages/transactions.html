@@ -10,12 +10,54 @@
       </tr>
     </thead>
     <tbody>
-      {{#each transaction in transactions}}
-        {{> viewTransaction transaction=transaction}}
-      {{/each}}
+      {{#each transaction in transactions}} {{> viewTransaction transaction=transaction}} {{/each}}
     </tbody>
   </table>
   <span class="tag is-primary is-large has-text-centered">Balance: {{balance}}</span>
+  <div class="space-block"></div>
+  <form class="js-transaction-form">
+    <div class="field is-horizontal">
+      <div class="field-body">
+        <div class="field">
+          <p class="control is-expanded has-icons-left">
+            <input class="input" type="text" placeholder="Description" required>
+            <span class="icon is-small is-left">
+              <i class="fa fa-user"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <p class="control is-expanded has-icons-left">
+            <input class="input" type="number" placeholder="Amount" required>
+            <span class="icon is-small is-left">
+              <i class="fa fa-envelope"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <div class="control has-icons-left">
+            <div class="select is-fullwidth">
+              <select required>
+                <option>Type</option>
+                <option value="Debit" selected>Debit</option>
+                <option value="Credit">Credit</option>
+              </select>
+            </div>
+            <span class="icon is-small is-left">
+              <i class="fa fa-envelope"></i>
+            </span>
+          </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <button type="submit" class="button is-primary">
+              Add
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
 </template>
 
 <template name="viewTransaction">
@@ -39,4 +81,3 @@
     </td>
   </tr>
 </template>
-
