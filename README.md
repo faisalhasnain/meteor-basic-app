@@ -24,4 +24,4 @@ Open your Mac/Linux terminal and execute the following commands.
       meteor npm start
       ```
   
-  Yay! 🎉 You got an app running at http://localhost:3000
+  Yay! 🎉 You got the app running at http://localhost:3000
