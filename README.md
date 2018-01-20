@@ -1,11 +1,8 @@
-# Accounts Manager
-Sample app to manage transactions built using Meteor, MongoDB, Blaze &amp; Bulma
-
 ## Technologies Used
 - Platform/Framework: [Meteor](https://www.meteor.com)
-- Database: [MongoDB](https://www.mongodb.com)
 - View Library: [Blaze](http://blazejs.org)
 - CSS Library: [Bulma](http://bulma.io)
+- Database: [MongoDB](https://www.mongodb.com)
 
 ## Getting Started
 Open your Mac/Linux terminal and execute the following commands.
